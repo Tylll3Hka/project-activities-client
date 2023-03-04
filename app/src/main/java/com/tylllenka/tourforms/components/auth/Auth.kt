@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.tylllenka.tourforms.R
 import com.tylllenka.tourforms.components.auth.buttons.ButtonLogin
+import com.tylllenka.tourforms.components.auth.buttons.Registration
 import com.tylllenka.tourforms.components.auth.inputs.Email
 import com.tylllenka.tourforms.components.auth.inputs.Password
 

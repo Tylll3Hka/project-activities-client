@@ -1,4 +1,4 @@
-package com.tylllenka.tourforms.components.auth
+package com.tylllenka.tourforms.components.auth.buttons
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
