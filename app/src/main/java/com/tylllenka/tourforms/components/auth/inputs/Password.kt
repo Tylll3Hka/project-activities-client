@@ -1,8 +1,8 @@
-package com.tylllenka.tourforms.components.constructors
+package com.tylllenka.tourforms.components.auth.inputs
 
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Icon
@@ -16,17 +16,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import com.tylllenka.tourforms.R
 
 @Composable
-fun CustomInout(
+fun Password(
     state: MutableState<String>,
-    placeholder: String,
-    @DrawableRes leadingIconId:  Int,
-    type: KeyboardType,
-    visualTransformation: VisualTransformation
-    ) {
+    placeholder: String
+) {
     TextField(
         value = state.value,
         maxLines = 1,
@@ -38,15 +35,15 @@ fun CustomInout(
             disabledIndicatorColor = Color.Transparent,
             leadingIconColor = Color(0xFFCCD2E3)
         ),
-        modifier = Modifier.fillMaxWidth().padding(horizontal = 25.dp),
-        keyboardOptions = KeyboardOptions(keyboardType = type),
+        modifier = Modifier.fillMaxWidth().size(55.dp),
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
         shape = RoundedCornerShape(15.dp),
         onValueChange = { if (!it.contains("\n")) state.value = it },
         placeholder = { Text(text = placeholder, color = Color(0xFF878787)) },
-        visualTransformation = visualTransformation,
+        visualTransformation = PasswordVisualTransformation(mask = '●'),
         leadingIcon = {
             Icon(
-                painter = painterResource(leadingIconId),
+                painter = painterResource(R.drawable.lock),
                 contentDescription = "leadingIcon",
                 modifier = Modifier.padding(start = 15.dp, end = 8.dp)
             )

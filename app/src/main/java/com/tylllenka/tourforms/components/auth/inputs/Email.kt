@@ -1,4 +1,4 @@
-package com.tylllenka.tourforms.components.auth
+package com.tylllenka.tourforms.components.auth.inputs
 
 import android.text.TextUtils
 import android.util.Patterns
@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import com.tylllenka.tourforms.R
 
 @Composable
-fun InoutEmail(email: MutableState<String>, emailValidate: MutableState<Boolean>) {
+fun Email(email: MutableState<String>, emailValidate: MutableState<Boolean>) {
     TextField(
         value = email.value,
         colors = TextFieldDefaults.textFieldColors(
@@ -33,7 +33,7 @@ fun InoutEmail(email: MutableState<String>, emailValidate: MutableState<Boolean>
             leadingIconColor = Color(0xFFCCD2E3),
             trailingIconColor = if (emailValidate.value) Color.Green else Color(0xFFFF4848)
         ),
-        modifier = Modifier.fillMaxWidth().padding(horizontal = 25.dp).padding(bottom = 15.dp),
+        modifier = Modifier.fillMaxWidth().padding(bottom = 15.dp).size(55.dp),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
         shape = RoundedCornerShape(15.dp),
         maxLines = 1,
@@ -44,8 +44,7 @@ fun InoutEmail(email: MutableState<String>, emailValidate: MutableState<Boolean>
         placeholder = {
             Text(
                 text = "Email",
-                color = Color(0xFF878787),
-                modifier = Modifier.padding(horizontal = 0.dp)
+                color = Color(0xFF878787)
             )
         },
         leadingIcon = {
@@ -56,7 +55,7 @@ fun InoutEmail(email: MutableState<String>, emailValidate: MutableState<Boolean>
             )
         },
         trailingIcon = {
-            if(!emailValidate.value && email.value != "") {
+            if(!emailValidate.value && (email.value != "")) {
                 Icon(
                     painter = painterResource(R.drawable.cross),
                     contentDescription = "err",
